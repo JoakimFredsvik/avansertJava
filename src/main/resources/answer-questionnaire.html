@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index page</title>
+    <link rel="icon"
+          href="favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="logo">
+    <a href="/">
+        <p class="title-text">Answer</p>
+    </a>
+</div>
+
+<nav>
+    <ul>
+        <li><a href="/view-all-questionnaires.html">View questionnaires</a></li>
+        <li><a href="/new-questionnaire.html">New questionnaire</a></li>
+        <li><a href="/view-your-answers.html">View your answers</a></li>
+        <li><a href="/view-all-answers.html">View all answers</a></li>
+    </ul>
+</nav>
+<br>
+<div id="form-output">
+    not found
+</div>
+
+<script>
+    const editOutput = document.querySelector("#form-output")
+
+    const questionnaire_id = () => {
+        let query = window.location.search.substr(1)
+        return query.split("=")[1]
+    }
+
+    fetch(`/api/questionnaire?type=id&id=${questionnaire_id()}&editable=false`).then(result => result.text())
+        .then(text => {
+            editOutput.innerHTML = text
+            document.querySelector("input[name='user_id']").value = cookieReader()
+        })
+
+    const cookieReader = () => {
+        let cookieString = document.cookie
+        let cookieSplitted = cookieString.split(";")
+        let result = ""
+        cookieSplitted.forEach(element => {
+            let split = element.split("=")
+            if (split[0] === "id") {
+                result = split[1]
+
+            }
+        })
+        return result
+    }
+</script>
+</body>
+</html>

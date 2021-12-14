@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index page</title>
+    <link rel="icon"
+          href="favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="logo">
+        <a href="/">
+            <p class="title-text">Questionnaire</p>
+        </a>
+    </div>
+
+    <nav class="hidden-links">
+        <ul>
+            <li><a href="/view-all-questionnaires.html">View questionnaires</a></li>
+            <li><a href="/new-questionnaire.html">New questionnaire</a></li>
+            <li><a href="/view-your-answers.html">View your answers</a></li>
+            <li><a href="/view-all-answers.html">View all answers</a></li>
+        </ul>
+    </nav>
+    <br>
+    <input type="button" id="change-user" value="change user" class="hidden-links">
+
+    <div id="name-wrapper">
+        <p>Enter your name, and press submit</p><br>
+
+        <form action="/api/user" method="post">
+            <label for="name-input" >Name</label>
+            <input type="text" name="name" id="name-input">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script defer>
+        const nameWrapper = document.querySelector("#name-wrapper")
+        const nav = document.querySelector("nav")
+        const changeUser = document.querySelector("#change-user")
+        const cookieReader = () => {
+            let cookieString = document.cookie
+            let cookieSplitted = cookieString.split(";")
+            cookieSplitted.forEach(element => {
+                let split = element.split("=")
+                if(split[0] === "id"){
+                    makeNameHTML(split[1])
+                    nav.classList.toggle("hidden-links")
+                    changeUser.classList.toggle("hidden-links")
+                }
+            })
+        }
+
+        const makeNameHTML = id => {
+            fetch(`/api/user?type=id&id=${id}`).then(res=>res.text()).then(text=>
+                nameWrapper.innerHTML = `<p>Welcome back <span class="bold">${text}</span></p>`
+            )
+        }
+        changeUser.addEventListener("click", () => {
+            /*Removes cookie*/
+            document.cookie = "id= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+            window.location.replace("/")
+        })
+        cookieReader()
+    </script>
+</body>
+</html>

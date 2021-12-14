@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All questionnaires</title>
+    <link rel="icon"
+          href="favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="logo">
+    <a href="/">
+        <p class="title-text">Questionnaire</p>
+    </a>
+</div>
+<nav>
+    <ul>
+        <li><a href="/view-all-questionnaires.html" class="active-link">View questionnaires</a></li>
+        <li><a href="/new-questionnaire.html">New questionnaire</a></li>
+        <li><a href="/view-your-answers.html">View your answers</a></li>
+        <li><a href="/view-all-answers.html">View all answers</a></li>
+    </ul>
+</nav>
+<div id="questionnaire-output">
+
+</div>
+
+<script defer>
+    const output = document.querySelector("#questionnaire-output")
+
+    fetch("/api/questionnaire?type=all&short=true").then(response => response.text()).then(
+        text => output.innerHTML = text
+    )
+
+</script>
+</body>
+</html>

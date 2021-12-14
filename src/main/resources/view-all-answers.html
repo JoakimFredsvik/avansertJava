@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All answers</title>
+    <link rel="icon"
+          href="favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="logo">
+    <a href="/">
+        <p class="title-text">Questionnaire</p>
+    </a>
+</div>
+<nav>
+    <ul>
+        <li><a href="/view-all-questionnaires.html">View questionnaires</a></li>
+        <li><a href="/new-questionnaire.html">New questionnaire</a></li>
+        <li><a href="/view-your-answers.html">View your answers</a></li>
+        <li><a href="/view-all-answers.html" class="active-link">View all answers</a></li>
+    </ul>
+</nav>
+
+<h1>All answers</h1>
+
+    <!-- Demo table, must implement fetching from server -->
+    <table>
+
+
+    </table>
+
+    <script defer>
+        const table = document.querySelector("table")
+
+        fetch("/api/answer?type=all").then(response => response.text()).then(
+            text => {
+                let html = `
+        <tr>
+          <th>Questionnaire</th>
+          <th>Question</th>
+          <th>Answer</th>
+          <th>User</th>
+        </tr>
+      `
+                table.innerHTML = html+text
+            }
+        )
+    </script>
+</div>
+</body>
+</html>

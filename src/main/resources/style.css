@@ -1,0 +1,98 @@
+body {
+    font-family: sans-serif;
+    margin: 1em 15em;
+}
+
+.logo {
+    background-color: #209CEE;
+    border-radius:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:3em;
+    width: auto;
+}
+.title-text {
+    color: white;
+    font-size: 3em;
+}
+.logo a {
+    text-decoration: none;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #bae1fc;
+}
+
+nav ul {
+    list-style-type: none;
+    display:flex;
+    justify-content: space-between;
+
+}
+nav ul a{
+    text-decoration: none;
+    color:black;
+}
+nav ul a:hover{
+
+    color:gray;
+}
+
+.questionnaire {
+    margin:1em;
+    border:1px solid #dddddd;
+    padding: 1em;
+    border-radius: 15px;
+}
+
+.questionnaire p {
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.active-link {
+    color: #ff5d5d!important;
+}
+
+.hidden-links {
+    display:none;
+}
+
+.info {
+    background-color: #bbe7ff;
+    color: #535353;
+}
+
+input[type='submit'] {
+    font-weight: bold;
+    background-color: #209CEE;
+    min-width: 7em;
+    height:2em;
+    border:none;
+    border-radius: 3px;
+    color: white;
+    margin:0.5em;
+}
+
+.green {
+    background-color: #269a00 !important;
+}
+
+.red {
+    background-color: #fa7070!important;
+}
