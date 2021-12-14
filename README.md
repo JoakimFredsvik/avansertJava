@@ -1,5 +1,5 @@
-[![Java CI with Maven](https://github.com/kristiania-pgr203-2021/pgr203-exam-JoakimFredsvik/actions/workflows/maven.yml/badge.svg)](https://github.com/kristiania-pgr203-2021/pgr203-exam-JoakimFredsvik/actions/workflows/maven.yml)
-# pgr203-exam-JoakimFredsvik
+
+# Eksamen i Avansert Java
 ## Beskrivelse
 Http-server med brukergrensesnitt hvor man kan lage, og svare på spørreundersøkelser.
 
