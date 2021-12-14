@@ -1,4 +1,4 @@
-
+[![Java CI with Maven](https://github.com/JoakimFredsvik/avansertJava/actions/workflows/maven.yml/badge.svg)](https://github.com/JoakimFredsvik/avansertJava/actions/workflows/maven.yml)
 # Eksamen i Avansert Java
 ## Beskrivelse
 Http-server med brukergrensesnitt hvor man kan lage, og svare på spørreundersøkelser.
